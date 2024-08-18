@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "streetsidesoftware.code-spell-checker",
+    "oderwat.indent-rainbow",
+    "yahyabatulu.vscode-markdown-alert",
+    "esbenp.prettier-vscode",
+    "timonwong.shellcheck",
+    "shardulm94.trailing-spaces"
+  ]
+}
