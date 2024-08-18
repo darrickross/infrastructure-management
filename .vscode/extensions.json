@@ -3,7 +3,9 @@
     "streetsidesoftware.code-spell-checker",
     "oderwat.indent-rainbow",
     "yahyabatulu.vscode-markdown-alert",
+    "davidanson.vscode-markdownlint",
     "esbenp.prettier-vscode",
+    "foxundermoon.shell-format",
     "timonwong.shellcheck",
     "shardulm94.trailing-spaces"
   ]
