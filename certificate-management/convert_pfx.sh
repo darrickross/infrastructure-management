@@ -12,14 +12,14 @@ Required Options:
   -i, --input <path>        Specify the input .pfx file
 
 Optional File Types to extract
-  -k, --key                 Extract private key             name.$EXT_PRIVATE_KEY
-  -p, --pub                 Extract public key              name.$EXT_PUBLIC_KEY
-  -c, --cert                Extract certificate             name.$EXT_CERTIFICATE
+  -p, --private             Extract private key             name.$EXT_PRIVATE_KEY
+  -P, --public              Extract public key              name.$EXT_PUBLIC_KEY
+  -c, --certificate         Extract certificate             name.$EXT_CERTIFICATE
   -C, --chain               Extract full certificate chain  name.$EXT_CHAIN_CERTIFICATE
   -r, --root-ca             Extract root CA certificate     name.$EXT_ROOT_CA_CERTIFICATE
 
-  -s, --standard            Effectively the same as -k -c -C
-  -a, --all                 Effectively the same as -k -p -c -C -r
+  -s, --standard            Effectively the same as -p -c -C
+  -a, --all                 Effectively the same as -p -P -c -C -r
 
 Optional modifiers:
   -o, --output <path>       Specify base name for output files (default to .pfx filename)
@@ -29,7 +29,7 @@ Optional modifiers:
   -h, --help                Show this help message
 
 Examples:
-  $0 -i /path/to/bundle.pfx -k -c -C
+  $0 -i /path/to/bundle.pfx -p -c -C
     The following will be created:
       - private key:          /path/to/bundle.$EXT_PRIVATE_KEY
       - client certificate:   /path/to/bundle.$EXT_CERTIFICATE
@@ -100,19 +100,19 @@ while [[ "$#" -gt 0 ]]; do
     ;;
 
   # Optional File Types to extract
-  -k | --key)
+  -p | --private)
     extract_private_key=true
     shift
     ;;
-  -p | --pub)
+  -P | --public)
     extract_public_key=true
     shift
     ;;
-  -C | --cert)
+  -c | --certificate)
     extract_certificate=true
     shift
     ;;
-  -c | --chain)
+  -C | --chain)
     extract_chain_certificate=true
     shift
     ;;
