@@ -61,8 +61,9 @@ EXT_CHAIN_CERTIFICATE="chain.crt"
 EXT_ROOT_CA_CERTIFICATE="root.crt"
 
 # ANSI escape codes
-RED='\033[0;31m' # Red
-RESET='\033[0m'  # No Color
+GREEN='\033[0;32m' # Green
+RED='\033[0;31m'   # Red
+RESET='\033[0m'    # No Color
 
 # ------------------------------------------------------------------------------
 # Functions
@@ -70,6 +71,16 @@ RESET='\033[0m'  # No Color
 
 print_error() {
   echo -e "${RED}ERROR${RESET}: $1"
+}
+
+print_color_true_false() {
+  if [ "$1" = true ]; then
+    echo -e "${GREEN}$1${RESET}"
+  elif [ "$1" = false ]; then
+    echo -e "${RED}$1${RESET}"
+  else
+    echo "$1"
+  fi
 }
 
 # ------------------------------------------------------------------------------
@@ -199,14 +210,15 @@ if [ "$log_level" -gt 0 ]; then
     Output base name: $output_name.<EXTENSION>
 
   Keys to extract:
-    - Extract private key:          $extract_private_key
-    - Extract public key:           $extract_public_key
-    - Extract certificate:          $extract_certificate
-    - Extract chain certificate:    $extract_chain_certificate
-    - Extract root CA certificate:  $extract_root_certificate
+    - Extract private key:          $(print_color_true_false $extract_private_key)
+    - Extract public key:           $(print_color_true_false $extract_public_key)
+    - Extract certificate:          $(print_color_true_false $extract_certificate)
+    - Extract chain certificate:    $(print_color_true_false $extract_chain_certificate)
+    - Extract root CA certificate:  $(print_color_true_false $extract_root_certificate)
 
   Modifiers:
-    - Display details: $display_details
-    - Log level:       $log_level
+    - Display details:              $(print_color_true_false $display_details)
+    - Log level:                    $log_level
+
 EOF
 fi
