@@ -1,5 +1,8 @@
 #!/bin/bash -e
 
+# TODO:
+# - Add support for `quiet`, grab PFX_PASSWORD from env variable
+
 # ------------------------------------------------------------------------------
 # Show Help
 # ------------------------------------------------------------------------------
@@ -24,7 +27,7 @@ Optional File Types to extract
 Optional modifiers:
   -o, --output <path>       Specify base name for output files (default to .pfx filename)
   -d, --details             Show details about the .pfx file
-  -q, --quiet               Run in quiet mode
+  -q, --quiet               Run in quiet mode (NOT IMPLEMENTED)
   -v, --verbose             Run in verbose mode
   -h, --help                Show this help message
 
