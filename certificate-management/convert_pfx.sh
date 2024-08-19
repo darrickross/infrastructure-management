@@ -21,7 +21,7 @@ Optional File Types to extract
   -C, --chain               Extract full certificate chain  name.$EXT_CHAIN_CERTIFICATE
   -r, --root-ca             Extract root CA certificate     name.$EXT_ROOT_CA_CERTIFICATE
 
-  -s, --standard            Effectively the same as -p -c -C
+  -s, --standard            Effectively the same as -p -c
   -a, --all                 Effectively the same as -p -P -c -C -r
 
 Optional modifiers:
@@ -164,7 +164,6 @@ while [[ "$#" -gt 0 ]]; do
   -s | --standard)
     extract_private_key=true
     extract_certificate=true
-    extract_chain_certificate=true
     shift
     ;;
   -a | --all)
