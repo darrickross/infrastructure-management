@@ -225,3 +225,12 @@ if [ "$log_level" -gt 0 ]; then
 
 EOF
 fi
+
+# ------------------------------------------------------------------------------
+# Get password
+# ------------------------------------------------------------------------------
+
+# Get the PFX password
+# https://unix.stackexchange.com/a/439510
+IFS= read -rs -p 'Enter the .pfx password: ' PFX_PASSWORD
+echo ''
