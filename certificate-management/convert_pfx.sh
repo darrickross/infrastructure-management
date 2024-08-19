@@ -59,3 +59,15 @@ EXT_PUBLIC_KEY="pub"
 EXT_CERTIFICATE="crt"
 EXT_CHAIN_CERTIFICATE="chain.crt"
 EXT_ROOT_CA_CERTIFICATE="root.crt"
+
+# ANSI escape codes
+RED='\033[0;31m' # Red
+RESET='\033[0m'  # No Color
+
+# ------------------------------------------------------------------------------
+# Functions
+# ------------------------------------------------------------------------------
+
+print_error() {
+  echo -e "${RED}ERROR${RESET}: $1"
+}
