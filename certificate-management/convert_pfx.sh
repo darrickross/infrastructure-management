@@ -1,8 +1,5 @@
 #!/bin/bash -e
 
-# TODO:
-# - Add support for `quiet`, grab PFX_PASSWORD from env variable
-
 # ------------------------------------------------------------------------------
 # Show Help
 # ------------------------------------------------------------------------------
@@ -27,7 +24,8 @@ Optional File Types to extract
 Optional modifiers:
   -o, --output <path>       Specify base name for output files (default to .pfx filename)
   -d, --details             Show details about the .pfx file
-  -q, --quiet               Run in quiet mode (NOT IMPLEMENTED)
+  -q, --quiet               Run in quiet mode
+                              Provide password via PFX_PASSWORD environtment variable
   -v, --verbose             Run in verbose mode
   -h, --help                Show this help message
 
@@ -257,8 +255,14 @@ fi
 
 # Get the PFX password
 # https://unix.stackexchange.com/a/439510
-IFS= read -rs -p 'Enter the .pfx password: ' PFX_PASSWORD
-echo ''
+if [ -z "$PFX_PASSWORD" ]; then
+  if [ "$log_level" -gt 0 ]; then
+    echo "Enter password for $pfx_file:"
+    IFS= read -rs -p '' PFX_PASSWORD
+    echo ''
+    echo ''
+  fi
+fi
 
 # ------------------------------------------------------------------------------
 # Validate PFX file & password
