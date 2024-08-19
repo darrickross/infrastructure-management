@@ -265,3 +265,107 @@ echo ''
 # ------------------------------------------------------------------------------
 
 validate_pfx_file "$pfx_file"
+
+# ------------------------------------------------------------------------------
+# Extract resource
+# ------------------------------------------------------------------------------
+
+# Extract private key
+if [ "$extract_private_key" = true ]; then
+  print_if_verbose "Extracting private key to ${output_name}.${EXT_PRIVATE_KEY}..."
+
+  if openssl pkcs12 \
+    -in "$pfx_file" \
+    -nocerts -nodes \
+    -passin pass:"$PFX_PASSWORD" |
+    openssl pkcs8 -nocrypt -out "${output_name}.${EXT_PRIVATE_KEY}"; then
+
+    print_if_not_quiet " - Successfully extracted Private key."
+  else
+    print_error "Failed to extract private key."
+    exit 1
+  fi
+fi
+
+# Extract public key
+if [ "$extract_public_key" = true ]; then
+  print_if_verbose "Extracting public key to ${output_name}.${EXT_PUBLIC_KEY}..."
+
+  if openssl pkcs12 \
+    -in "$pfx_file" \
+    -nokeys -clcerts \
+    -passin pass:"$PFX_PASSWORD" |
+    openssl x509 -pubkey -noout -out "${output_name}.${EXT_PUBLIC_KEY}"; then
+
+    print_if_not_quiet " - Successfully extracted Public key."
+  else
+    print_error "Failed to extract public key."
+    exit 1
+  fi
+fi
+
+# Extract certificate
+if [ "$extract_certificate" = true ]; then
+  print_if_verbose "Extracting certificate to ${output_name}.${EXT_CERTIFICATE}..."
+
+  if openssl pkcs12 \
+    -in "$pfx_file" \
+    -nokeys -clcerts \
+    -passin pass:"$PFX_PASSWORD" |
+    openssl x509 -out "${output_name}.${EXT_CERTIFICATE}"; then
+
+    print_if_not_quiet " - Successfully extracted Certificate."
+  else
+    print_error "Failed to extract certificate."
+    exit 1
+  fi
+fi
+
+# Extract chain certificate
+if [ "$extract_chain_certificate" = true ]; then
+  print_if_verbose "Extracting chain certificate to ${output_name}.${EXT_CHAIN_CERTIFICATE}..."
+
+  if openssl pkcs12 \
+    -in "$pfx_file" \
+    -nokeys -cacerts \
+    -passin pass:"$PFX_PASSWORD" |
+    openssl x509 -out "${output_name}.${EXT_CHAIN_CERTIFICATE}"; then
+
+    print_if_not_quiet " - Successfully extracted Chain certificate."
+  else
+    print_error "Failed to extract chain certificate."
+    exit 1
+  fi
+fi
+
+# Extract root CA certificate
+if [ "$extract_root_certificate" = true ]; then
+  print_if_verbose "Extracting root CA certificate to ${output_name}.${EXT_ROOT_CA_CERTIFICATE}..."
+
+  if openssl pkcs12 \
+    -in "$pfx_file" \
+    -nokeys -cacerts \
+    -passin pass:"$PFX_PASSWORD" |
+    openssl x509 -out "${output_name}.${EXT_ROOT_CA_CERTIFICATE}"; then
+
+    print_if_not_quiet " - Successfully Extracted Root CA certificate."
+  else
+    print_error "Failed to extract root CA certificate."
+    exit 1
+  fi
+fi
+
+# ------------------------------------------------------------------------------
+# Show details of PFX file (if requested)
+# ------------------------------------------------------------------------------
+
+if [ "$display_details" = true ]; then
+  print_if_verbose "Displaying details of the PFX file..."
+
+  echo ""
+  echo "Details of $pfx_file:"
+  if ! openssl pkcs12 -in "$pfx_file" -info -noout -passin pass:"$PFX_PASSWORD"; then
+    print_error "Failed to display PFX file details."
+    exit 1
+  fi
+fi
