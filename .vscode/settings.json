@@ -11,6 +11,6 @@
   "[shellscript]": {
     "editor.defaultFormatter": "foxundermoon.shell-format",
     "editor.insertSpaces": true,
-    "editor.tabSize": 4
+    "editor.tabSize": 2
   }
 }
