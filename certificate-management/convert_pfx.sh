@@ -86,6 +86,20 @@ print_color_true_false() {
   fi
 }
 
+validate_pfx_file() {
+  local pfx_file_path="$1"
+
+  if [ ! -f "$pfx_file_path" ]; then
+    print_error "File not found: $pfx_file_path"
+    exit 1
+  fi
+
+  if ! openssl pkcs12 -in "${pfx_file}" -noout -passin stdin <<<"$PFX_PASSWORD" 2>/dev/null; then
+    print_error "Invalid password for $pfx_file_path"
+    exit 1
+  fi
+}
+
 # ------------------------------------------------------------------------------
 # Parse Command Line Arguments
 # ------------------------------------------------------------------------------
@@ -234,3 +248,9 @@ fi
 # https://unix.stackexchange.com/a/439510
 IFS= read -rs -p 'Enter the .pfx password: ' PFX_PASSWORD
 echo ''
+
+# ------------------------------------------------------------------------------
+# Validate PFX file & password
+# ------------------------------------------------------------------------------
+
+validate_pfx_file "$pfx_file"
