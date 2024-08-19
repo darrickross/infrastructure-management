@@ -57,7 +57,7 @@ EOF
 # ------------------------------------------------------------------------------
 
 # Default File Extensions
-EXT_PRIVATE_KEY="key"
+EXT_PRIVATE_KEY="insecure.pem"
 EXT_PUBLIC_KEY="pub"
 EXT_CERTIFICATE="crt"
 EXT_CHAIN_CERTIFICATE="chain.crt"
