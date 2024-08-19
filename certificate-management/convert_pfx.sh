@@ -366,8 +366,8 @@ fi
 if [ "$display_details" = true ]; then
   print_if_verbose "Displaying details of the PFX file..."
 
-  echo ""
-  echo "Details of $pfx_file:"
+  print_if_not_quiet ""
+  print_if_not_quiet "Details of $pfx_file:"
   if ! openssl pkcs12 -in "$pfx_file" -info -noout -passin pass:"$PFX_PASSWORD"; then
     print_error "Failed to display PFX file details."
     exit 1
