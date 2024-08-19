@@ -80,11 +80,11 @@ print_error() {
 pfx_file=""
 
 # Default Optional File Types to extract arguments
-extract_key=false
-extract_pub=false
-extract_cert=false
-extract_chain=false
-extract_root_ca=false
+extract_private_key=false
+extract_public_key=false
+extract_certificate=false
+extract_chain_certificate=false
+extract_root_certificate=false
 
 # Default Optional modifiers arguments
 output_name=""
@@ -101,38 +101,38 @@ while [[ "$#" -gt 0 ]]; do
 
   # Optional File Types to extract
   -k | --key)
-    extract_key=true
+    extract_private_key=true
     shift
     ;;
   -p | --pub)
-    extract_pub=true
+    extract_public_key=true
     shift
     ;;
   -C | --cert)
-    extract_cert=true
+    extract_certificate=true
     shift
     ;;
   -c | --chain)
-    extract_chain=true
+    extract_chain_certificate=true
     shift
     ;;
   -r | --root-ca)
-    extract_root_ca=true
+    extract_root_certificate=true
     shift
     ;;
 
   -s | --standard)
-    extract_key=true
-    extract_cert=true
-    extract_chain=true
+    extract_private_key=true
+    extract_certificate=true
+    extract_chain_certificate=true
     shift
     ;;
   -a | --all)
-    extract_key=true
-    extract_pub=true
-    extract_cert=true
-    extract_chain=true
-    extract_root_ca=true
+    extract_private_key=true
+    extract_public_key=true
+    extract_certificate=true
+    extract_chain_certificate=true
+    extract_root_certificate=true
     shift
     ;;
 
@@ -199,11 +199,11 @@ if [ "$log_level" -gt 0 ]; then
     Output base name: $output_name.<EXTENSION>
 
   Keys to extract:
-    - Extract private key:          $extract_key
-    - Extract public key:           $extract_pub
-    - Extract certificate:          $extract_cert
-    - Extract chain certificate:    $extract_chain
-    - Extract root CA certificate:  $extract_root_ca
+    - Extract private key:          $extract_private_key
+    - Extract public key:           $extract_public_key
+    - Extract certificate:          $extract_certificate
+    - Extract chain certificate:    $extract_chain_certificate
+    - Extract root CA certificate:  $extract_root_certificate
 
   Modifiers:
     - Display details: $display_details
