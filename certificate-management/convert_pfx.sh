@@ -196,7 +196,7 @@ if [ "$log_level" -gt 0 ]; then
   cat <<EOF
   Selected Options:
     Input .pfx file:  $pfx_file
-    Output base name: $output_name
+    Output base name: $output_name.<EXTENSION>
 
   Keys to extract:
     - Extract private key:          $extract_key
