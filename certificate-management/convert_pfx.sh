@@ -86,6 +86,12 @@ print_color_true_false() {
   fi
 }
 
+print_based_on_log_level() {
+  if [ "$log_level" -gt 0 ]; then
+    echo "$1"
+  fi
+}
+
 validate_pfx_file() {
   local pfx_file_path="$1"
 
