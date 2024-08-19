@@ -86,8 +86,14 @@ print_color_true_false() {
   fi
 }
 
-print_based_on_log_level() {
+print_if_not_quiet() {
   if [ "$log_level" -gt 0 ]; then
+    echo "$1"
+  fi
+}
+
+print_if_verbose() {
+  if [ "$log_level" -gt 1 ]; then
     echo "$1"
   fi
 }
