@@ -292,7 +292,7 @@ if [ "$extract_private_key" = true ]; then
     -passin pass:"$PFX_PASSWORD" |
     openssl pkcs8 -nocrypt -out "${output_name}.${EXT_PRIVATE_KEY}"; then
 
-    print_if_not_quiet " - Successfully extracted Private key."
+    print_if_not_quiet "Successfully extracted Private Key."
   else
     print_error "Failed to extract private key."
     exit 1
@@ -309,7 +309,7 @@ if [ "$extract_public_key" = true ]; then
     -passin pass:"$PFX_PASSWORD" |
     openssl x509 -pubkey -noout -out "${output_name}.${EXT_PUBLIC_KEY}"; then
 
-    print_if_not_quiet " - Successfully extracted Public key."
+    print_if_not_quiet "Successfully extracted Public Key."
   else
     print_error "Failed to extract public key."
     exit 1
@@ -326,7 +326,7 @@ if [ "$extract_certificate" = true ]; then
     -passin pass:"$PFX_PASSWORD" |
     openssl x509 -out "${output_name}.${EXT_CERTIFICATE}"; then
 
-    print_if_not_quiet " - Successfully extracted Certificate."
+    print_if_not_quiet "Successfully extracted Certificate."
   else
     print_error "Failed to extract certificate."
     exit 1
@@ -343,7 +343,7 @@ if [ "$extract_chain_certificate" = true ]; then
     -passin pass:"$PFX_PASSWORD" |
     openssl x509 -out "${output_name}.${EXT_CHAIN_CERTIFICATE}"; then
 
-    print_if_not_quiet " - Successfully extracted Chain certificate."
+    print_if_not_quiet "Successfully extracted Chain Certificate."
   else
     print_error "Failed to extract chain certificate."
     exit 1
@@ -360,7 +360,7 @@ if [ "$extract_root_certificate" = true ]; then
     -passin pass:"$PFX_PASSWORD" |
     openssl x509 -out "${output_name}.${EXT_ROOT_CA_CERTIFICATE}"; then
 
-    print_if_not_quiet " - Successfully Extracted Root CA certificate."
+    print_if_not_quiet "Successfully extracted Root CA Certificate."
   else
     print_error "Failed to extract root CA certificate."
     exit 1
