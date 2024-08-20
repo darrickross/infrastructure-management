@@ -237,7 +237,7 @@ fi
 # Print Selected Options
 # ------------------------------------------------------------------------------
 
-if [ "$log_level" -gt $QUIET_LOG_LEVEL ]; then
+if [ "$log_level" -gt $DEFAULT_LOG_LEVEL ]; then
   cat <<EOF
   Selected Options:
     Input .pfx file:  $pfx_file
