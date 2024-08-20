@@ -1,4 +1,16 @@
 {
+  "cSpell.words": [
+    "-cacerts",
+    "-clcerts",
+    "-nocerts",
+    "-nocrypt",
+    "-nokeys",
+    "-noout",
+    "-passin",
+    "-pubkey",
+    "pkcs8",
+    "pkcs12"
+  ],
   "[jsonc]": {
     "editor.insertSpaces": true,
     "editor.tabSize": 2

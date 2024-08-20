@@ -25,7 +25,7 @@ Optional modifiers:
   -o, --output <path>       Specify base name for output files (default to .pfx filename)
   -d, --details             Show details about the .pfx file
   -q, --quiet               Run in quiet mode
-                              Provide password via PFX_PASSWORD environtment variable
+                              Provide password via PFX_PASSWORD environment variable
   -v, --verbose             Run in verbose mode
   -h, --help                Show this help message
 
@@ -208,7 +208,7 @@ while [[ "$#" -gt 0 ]]; do
 done
 
 # ------------------------------------------------------------------------------
-# Post arugments parsing
+# Post arguments parsing
 # ------------------------------------------------------------------------------
 
 if [ -z "$output_name" ]; then
@@ -216,7 +216,7 @@ if [ -z "$output_name" ]; then
 fi
 
 # ------------------------------------------------------------------------------
-# Validate arugments
+# Validate arguments
 # ------------------------------------------------------------------------------
 
 if [ -z "$pfx_file" ]; then
