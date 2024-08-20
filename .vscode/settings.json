@@ -8,8 +8,8 @@
     "-noout",
     "-passin",
     "-pubkey",
-    "pkcs8",
-    "pkcs12"
+    "pkcs12",
+    "pkcs8"
   ],
   "[jsonc]": {
     "editor.insertSpaces": true,
