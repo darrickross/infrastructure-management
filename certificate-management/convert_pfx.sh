@@ -1,8 +1,5 @@
 #!/bin/bash -e
 
-# TODO:
-# - root ca would be the last cert in the chain, extract just that one
-
 # ------------------------------------------------------------------------------
 # Show Help
 # ------------------------------------------------------------------------------
@@ -354,12 +351,76 @@ fi
 if [ "$extract_root_certificate" = true ]; then
   print_if_verbose "Extracting root CA certificate to '${output_name}.${EXT_ROOT_CA_CERTIFICATE}'..."
 
-  if openssl pkcs12 \
-    -in "$pfx_file" \
-    -nokeys -cacerts \
-    -passin pass:"$PFX_PASSWORD" |
-    openssl x509 -out "${output_name}.${EXT_ROOT_CA_CERTIFICATE}"; then
+  full_certificate_chain=$(
+    openssl pkcs12 \
+      -in "$pfx_file" \
+      -nokeys -cacerts \
+      -passin pass:"$PFX_PASSWORD"
+  )
 
+  if [ -z "$full_certificate_chain" ]; then
+    print_error "Failed to extract full certificate chain."
+    exit 1
+  fi
+
+  certificate_list=()
+  temp_certificate=""
+
+  print_if_verbose "Placing certificates in the chain into an array..."
+
+  while IFS= read -r line; do
+    if [[ "$line" == "-----BEGIN CERTIFICATE-----" ]]; then
+      temp_certificate=""
+      temp_certificate="$line"
+      print_if_verbose " - Found certificate BEGIN"
+    elif [[ "$line" == "-----END CERTIFICATE-----" ]]; then
+      temp_certificate+=$'\n'"$line"
+      certificate_list+=("$temp_certificate")
+      temp_certificate=""
+      print_if_verbose " - Found certificate END"
+    else
+      temp_certificate+=$'\n'"$line"
+    fi
+  done <<<"$full_certificate_chain"
+
+  print_if_verbose "Found ${#certificate_list[@]} certificates in the chain"
+  print_if_verbose "Iterating through the certificates to find the Root CA certificate..."
+
+  found_root_ca=false
+
+  for i in "${!certificate_list[@]}"; do
+    cur_cert="${certificate_list[$i]}"
+
+    print_if_verbose "Operating on certificate: $((i + 1))/${#certificate_list[@]}"
+
+    if [ -z "$cur_cert" ]; then
+      print_if_verbose " - Skipping empty certificate."
+      continue
+    fi
+
+    if ! echo "$cur_cert" | openssl x509 -noout 2>/dev/null; then
+      print_error "Invalid certificate detected while extracting root CA."
+      echo "$cur_cert"
+      exit 1
+    fi
+
+    issuer=$(echo "$cur_cert" | openssl x509 -noout -issuer 2>/dev/null | sed 's/issuer=//')
+    subject=$(echo "$cur_cert" | openssl x509 -noout -subject 2>/dev/null | sed 's/subject=//')
+
+    print_if_verbose " - Issuer:  $issuer"
+    print_if_verbose " - Subject: $subject"
+
+    if [[ "$issuer" == "$subject" ]]; then
+      print_if_verbose " - Self-signed certificate detected."
+      print_if_verbose " - Assuming this is the Root CA certificate."
+      print_if_verbose " - Saving to ${output_name}.${EXT_ROOT_CA_CERTIFICATE}"
+      echo "$cur_cert" | openssl x509 >"${output_name}.${EXT_ROOT_CA_CERTIFICATE}"
+      found_root_ca=true
+      break
+    fi
+  done
+
+  if [ "$found_root_ca" = true ]; then
     print_if_not_quiet "Successfully extracted Root CA Certificate."
   else
     print_error "Failed to extract root CA certificate."
