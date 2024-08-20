@@ -64,6 +64,11 @@ EXT_CERTIFICATE="crt"
 EXT_CHAIN_CERTIFICATE="chain.crt"
 EXT_ROOT_CA_CERTIFICATE="root.crt"
 
+# Log level
+QUIET_LOG_LEVEL=0
+DEFAULT_LOG_LEVEL=1
+VERBOSE_LOG_LEVEL=2
+
 # ANSI escape codes
 GREEN='\033[0;32m' # Green
 RED='\033[0;31m'   # Red
@@ -88,13 +93,13 @@ print_color_true_false() {
 }
 
 print_if_not_quiet() {
-  if [ "$log_level" -gt 0 ]; then
+  if [ "$log_level" -gt $QUIET_LOG_LEVEL ]; then
     echo "$1"
   fi
 }
 
 print_if_verbose() {
-  if [ "$log_level" -gt 1 ]; then
+  if [ "$log_level" -gt $DEFAULT_LOG_LEVEL ]; then
     echo "$1"
   fi
 }
@@ -130,7 +135,7 @@ extract_root_certificate=false
 # Default Optional modifiers arguments
 output_name=""
 display_details=false
-log_level=1
+log_level=$DEFAULT_LOG_LEVEL
 
 while [[ "$#" -gt 0 ]]; do
   case "$1" in
@@ -186,11 +191,11 @@ while [[ "$#" -gt 0 ]]; do
     shift
     ;;
   -q | --quiet)
-    log_level=0
+    log_level=$QUIET_LOG_LEVEL
     shift
     ;;
   -v | --verbose)
-    log_level=2
+    log_level=$VERBOSE_LOG_LEVEL
     shift
     ;;
   -h | --help)
@@ -232,7 +237,7 @@ fi
 # Print Selected Options
 # ------------------------------------------------------------------------------
 
-if [ "$log_level" -gt 0 ]; then
+if [ "$log_level" -gt $QUIET_LOG_LEVEL ]; then
   cat <<EOF
   Selected Options:
     Input .pfx file:  $pfx_file
@@ -259,7 +264,7 @@ fi
 # Get the PFX password
 # https://unix.stackexchange.com/a/439510
 if [ -z "$PFX_PASSWORD" ]; then
-  if [ "$log_level" -gt 0 ]; then
+  if [ "$log_level" -gt $QUIET_LOG_LEVEL ]; then
     echo "Enter password for $pfx_file:"
     IFS= read -rs -p '' PFX_PASSWORD
     echo ''
