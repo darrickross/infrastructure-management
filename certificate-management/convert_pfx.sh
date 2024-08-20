@@ -279,7 +279,7 @@ validate_pfx_file "$pfx_file"
 
 # Extract private key
 if [ "$extract_private_key" = true ]; then
-  print_if_verbose "Extracting private key to ${output_name}.${EXT_PRIVATE_KEY}..."
+  print_if_verbose "Extracting private key to '${output_name}.${EXT_PRIVATE_KEY}'..."
 
   if openssl pkcs12 \
     -in "$pfx_file" \
@@ -296,7 +296,7 @@ fi
 
 # Extract public key
 if [ "$extract_public_key" = true ]; then
-  print_if_verbose "Extracting public key to ${output_name}.${EXT_PUBLIC_KEY}..."
+  print_if_verbose "Extracting public key to '${output_name}.${EXT_PUBLIC_KEY}'..."
 
   if openssl pkcs12 \
     -in "$pfx_file" \
@@ -313,7 +313,7 @@ fi
 
 # Extract certificate
 if [ "$extract_certificate" = true ]; then
-  print_if_verbose "Extracting certificate to ${output_name}.${EXT_CERTIFICATE}..."
+  print_if_verbose "Extracting certificate to '${output_name}.${EXT_CERTIFICATE}'..."
 
   if openssl pkcs12 \
     -in "$pfx_file" \
@@ -330,7 +330,7 @@ fi
 
 # Extract chain certificate
 if [ "$extract_chain_certificate" = true ]; then
-  print_if_verbose "Extracting chain certificate to ${output_name}.${EXT_CHAIN_CERTIFICATE}..."
+  print_if_verbose "Extracting chain certificate to '${output_name}.${EXT_CHAIN_CERTIFICATE}'..."
 
   if openssl pkcs12 \
     -in "$pfx_file" \
@@ -347,7 +347,7 @@ fi
 
 # Extract root CA certificate
 if [ "$extract_root_certificate" = true ]; then
-  print_if_verbose "Extracting root CA certificate to ${output_name}.${EXT_ROOT_CA_CERTIFICATE}..."
+  print_if_verbose "Extracting root CA certificate to '${output_name}.${EXT_ROOT_CA_CERTIFICATE}'..."
 
   if openssl pkcs12 \
     -in "$pfx_file" \
