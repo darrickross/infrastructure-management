@@ -93,13 +93,13 @@ print_color_true_false() {
 }
 
 print_if_not_quiet() {
-  if [ "$log_level" -gt $QUIET_LOG_LEVEL ]; then
+  if [ "$log_level" -ge $DEFAULT_LOG_LEVEL ]; then
     echo "$1"
   fi
 }
 
 print_if_verbose() {
-  if [ "$log_level" -gt $DEFAULT_LOG_LEVEL ]; then
+  if [ "$log_level" -ge $VERBOSE_LOG_LEVEL ]; then
     echo "$1"
   fi
 }
@@ -237,7 +237,7 @@ fi
 # Print Selected Options
 # ------------------------------------------------------------------------------
 
-if [ "$log_level" -gt $DEFAULT_LOG_LEVEL ]; then
+if [ "$log_level" -ge $VERBOSE_LOG_LEVEL ]; then
   cat <<EOF
   Selected Options:
     Input .pfx file:  $pfx_file
@@ -264,7 +264,7 @@ fi
 # Get the PFX password
 # https://unix.stackexchange.com/a/439510
 if [ -z "$PFX_PASSWORD" ]; then
-  if [ "$log_level" -gt $QUIET_LOG_LEVEL ]; then
+  if [ "$log_level" -ge $DEFAULT_LOG_LEVEL ]; then
     echo "Enter password for $pfx_file:"
     IFS= read -rs -p '' PFX_PASSWORD
     echo ''
@@ -386,7 +386,7 @@ fi
 # Which files were created
 # ------------------------------------------------------------------------------
 
-if [ "$log_level" -gt $QUIET_LOG_LEVEL ]; then
+if [ "$log_level" -ge $DEFAULT_LOG_LEVEL ]; then
   if [ "$extract_private_key" = true ] ||
     [ "$extract_public_key" = true ] ||
     [ "$extract_certificate" = true ] ||
