@@ -381,3 +381,38 @@ if [ "$display_details" = true ]; then
     exit 1
   fi
 fi
+
+# ------------------------------------------------------------------------------
+# Which files were created
+# ------------------------------------------------------------------------------
+
+if [ "$log_level" -gt $QUIET_LOG_LEVEL ]; then
+  if [ "$extract_private_key" = true ] ||
+    [ "$extract_public_key" = true ] ||
+    [ "$extract_certificate" = true ] ||
+    [ "$extract_chain_certificate" = true ] ||
+    [ "$extract_root_certificate" = true ]; then
+    echo ""
+    echo "Files created:"
+  fi
+
+  if [ "$extract_private_key" = true ]; then
+    echo "  - ${output_name}.${EXT_PRIVATE_KEY}"
+  fi
+
+  if [ "$extract_public_key" = true ]; then
+    echo "  - ${output_name}.${EXT_PUBLIC_KEY}"
+  fi
+
+  if [ "$extract_certificate" = true ]; then
+    echo "  - ${output_name}.${EXT_CERTIFICATE}"
+  fi
+
+  if [ "$extract_chain_certificate" = true ]; then
+    echo "  - ${output_name}.${EXT_CHAIN_CERTIFICATE}"
+  fi
+
+  if [ "$extract_root_certificate" = true ]; then
+    echo "  - ${output_name}.${EXT_ROOT_CA_CERTIFICATE}"
+  fi
+fi
