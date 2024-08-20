@@ -8,6 +8,7 @@
     "-noout",
     "-passin",
     "-pubkey",
+    "homelab",
     "pkcs12",
     "pkcs8"
   ],
