@@ -22,7 +22,7 @@ Requires changes to Certificate Templates
 ## Generate Certificate Request
 
 1. Open Certificates
-   1. run `mmc.exe`
+   1. Run `mmc.exe`
    2. "File" -> "Add/Remove Snap-in"
       1. Add "Certificates"
       2. Select "Computer account"
@@ -82,7 +82,7 @@ Requires changes to Certificate Templates
 ## Import Certificate to the Domain
 
 1. Open Certificates
-   1. run `mmc.exe`
+   1. Run `mmc.exe`
    2. "File" -> "Add/Remove Snap-in"
       1. Add "Certificates"
       2. Select "Computer account"
@@ -95,7 +95,7 @@ Requires changes to Certificate Templates
 ## Export .pfx Certificate Bundle
 
 1. Open Certificates
-   1. 1. run `mmc.exe`
+   1. Run `mmc.exe`
    2. "File" -> "Add/Remove Snap-in"
       1. Add "Certificates"
       2. Select "Computer account"
