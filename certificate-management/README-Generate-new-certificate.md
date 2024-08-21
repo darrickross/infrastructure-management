@@ -124,7 +124,7 @@ Export the Client certificate
 `openssl pkcs12 -in example.pfx -clcerts -nokeys | openssl x509 -out example.crt`
 
 Export the Chain CA Certificate
-`openssl pkcs12 -in example.pfx -cacerts -nokeys | openssl x509 -out example.cacrt`
+`openssl pkcs12 -in example.pfx -cacerts -nokeys | openssl x509 -out example.chain.crt`
 
 ## Import Root CA into Trusted Certificates
 
