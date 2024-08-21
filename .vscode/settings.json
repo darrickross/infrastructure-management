@@ -9,7 +9,10 @@
     "-noout",
     "-passin",
     "-pubkey",
+    "certlm.msc",
+    "certsrv.msc",
     "homelab",
+    "PKCS",
     "pkcs12",
     "pkcs8"
   ],
