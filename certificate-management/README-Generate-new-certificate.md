@@ -13,7 +13,7 @@ Requires changes to Certificate Templates
 1. Open `certsrv.msc`
 2. Expand `Your-Domain-CA`
 3. Right Click "Certificate Template" -> Select "Manage"
-   1. Right click "Webserver" -> Select "Properties"
+   1. Right click "Web server" -> Select "Properties"
    2. Select Security Tab
       1. Select `Authenticated Users`
       2. Allow `Enroll` Permission
