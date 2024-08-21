@@ -285,7 +285,7 @@ if [ "$extract_private_key" = true ]; then
 
   if openssl pkcs12 \
     -in "$pfx_file" \
-    -nocerts -nodes \
+    -nocerts -noenc \
     -passin pass:"$PFX_PASSWORD" |
     openssl pkcs8 -nocrypt -out "${output_name}.${EXT_PRIVATE_KEY}"; then
 

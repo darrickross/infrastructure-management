@@ -4,6 +4,7 @@
     "-clcerts",
     "-nocerts",
     "-nocrypt",
+    "-noenc",
     "-nokeys",
     "-noout",
     "-passin",
