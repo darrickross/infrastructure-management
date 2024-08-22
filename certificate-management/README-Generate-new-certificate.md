@@ -72,7 +72,7 @@ Requires changes to Certificate Templates
 
 ### Generate Certificate
 
-1. Navigate <http://localhost/certsrv/> in any browser
+1. Navigate <http://localhost/certsrv/> in any browser on the Windows Server Certificate Authority
 2. Select "Request a certificate"
 3. Select "Advanced certificate request"
    1. Paste the contents of the Request file you generated in the last step
