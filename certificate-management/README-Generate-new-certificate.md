@@ -1,4 +1,6 @@
-# Windows AD CS - Generate Certificates
+# Generate new Web Certificate in Windows Active Directory Certificate Services (AD CS)
+
+This is a guide to create a web server certificate signed by a Root CA on Windows Active Directory Certificate Services. I use this to generate a certificate signed by my own Self Signed root certificate form a custom domain.
 
 ## Pre-requirements
 
