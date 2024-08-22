@@ -2,6 +2,15 @@
 
 This is a guide to create a web server certificate signed by a Root CA on Windows Active Directory Certificate Services. I use this to generate a certificate signed by my own Self Signed root certificate form a custom domain.
 
+## Repository Navigation Guide
+
+- [*root directory*](../README.md)
+  - [/certificate-management](./README.md) - ***YOU ARE HERE***
+    - convert_pfx.sh
+      - Script for managing and extracting components from a `.pfx` (PKCS12) bundle
+    - [`README-Generate-new-certificate.md`](.) - ***YOU ARE HERE***
+      - Guide to creating a new `.pfx` (PKCS12) bundle
+
 ## Pre-requirements
 
 Requires Windows Server Role:
