@@ -19,7 +19,9 @@ Requires changes to Certificate Templates
       2. Allow `Enroll` Permission
       3. Select "OK"
 
-## Generate Certificate Request
+## Generate Web Certificate
+
+### Generate Certificate Request
 
 1. Open Certificates
    1. Run `mmc.exe`
@@ -68,7 +70,7 @@ Requires changes to Certificate Templates
    4. Select Next
    5. Save the Request to the file system
 
-## Generate Certificate
+### Generate Certificate
 
 1. Navigate <http://localhost/certsrv/> in any browser
 2. Select "Request a certificate"
@@ -79,7 +81,7 @@ Requires changes to Certificate Templates
 4. Submit
 5. Download certificate
 
-## Import Certificate to the Domain
+### Import Certificate to the Domain
 
 1. Open Certificates
    1. Run `mmc.exe`
@@ -92,7 +94,7 @@ Requires changes to Certificate Templates
    2. Select the certificate you created in the last step
    3. Make sure the "Personal" store is the Certificate Store is selected
 
-## Export .pfx Certificate Bundle
+### Export .pfx Certificate Bundle
 
 1. Open Certificates
    1. Run `mmc.exe`
@@ -112,7 +114,7 @@ Requires changes to Certificate Templates
    4. Save the file
    5. Ok
 
-## Convert .pfx to .pem format
+### Convert `.pfx` to `.pem` format
 
 Export the Private Key with a password
 `openssl pkcs12 -in example.pfx -nocerts -out example.key`
