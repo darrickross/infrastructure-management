@@ -116,17 +116,17 @@ Requires changes to Certificate Templates
 
 ### Convert `.pfx` to `.pem` format
 
-Export the Private Key with a password
-`openssl pkcs12 -in example.pfx -nocerts -out example.key`
+- Export the Private Key ***with a password***
+  - `openssl pkcs12 -in example.pfx -nocerts -out example.pem`
+- Export the Private Key ***without a password***
+  - `openssl pkcs12 -in example.pfx -noenc -nocerts | openssl pkcs8 -nocrypt -out example.insecure.pem`
+- Export the Client certificate
+  - `openssl pkcs12 -in example.pfx -clcerts -nokeys | openssl x509 -out example.crt`
+- Export the Chain CA Certificate
+  - `openssl pkcs12 -in example.pfx -cacerts -nokeys | openssl x509 -out example.chain.crt`
 
-Export the Private Key without a password (cleaned up)
-`openssl pkcs12 -in example.pfx -noenc -nocerts | openssl pkcs8 -nocrypt -out example.insecure.key`
-
-Export the Client certificate
-`openssl pkcs12 -in example.pfx -clcerts -nokeys | openssl x509 -out example.crt`
-
-Export the Chain CA Certificate
-`openssl pkcs12 -in example.pfx -cacerts -nokeys | openssl x509 -out example.chain.crt`
+> [!NOTE]
+> The second openssl command is used to remove extra bag details left in from the openssl pkcs1 format. Allowing you to get just the PEM format for the private key and certificate(s).
 
 ## Import Root CA into Trusted Certificates
 
