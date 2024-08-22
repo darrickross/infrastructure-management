@@ -2,11 +2,14 @@
 
 The `certificate-management` folder contains scripts and guides designed to manage certificates and cryptographic components. These tools aim to simplify the extraction and handling of private keys, public keys, certificates, and certificate chains from bundled `.pfx` files.
 
-## Relative Folder Structure
+## Repository Navigation Guide
 
 - [*root directory*](../README.md)
   - [/certificate-management](./README.md) - ***YOU ARE HERE***
-    - [`convert_pfx.sh`](#convert_pfxsh) - Script for managing and extracting components from a `.pfx` (PKCS12) bundle
+    - [`convert_pfx.sh`](#convert_pfxsh)
+      - Script for managing and extracting components from a `.pfx` (PKCS12) bundle
+    - [`README-Generate-new-certificate.md`](./README-Generate-new-certificate.md)
+      - Guide to creating a new `.pfx` (PKCS12) bundle
 
 ## `convert_pfx.sh`
 
