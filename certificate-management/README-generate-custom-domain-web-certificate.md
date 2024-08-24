@@ -34,52 +34,52 @@ Requires changes to Certificate Templates
 
 ### Generate Certificate Request
 
-1. Open Certificates
-   1. Run `mmc.exe`
-   2. "File" -> "Add/Remove Snap-in"
-      1. Add "Certificates"
-      2. Select "Computer account"
-      3. Ok
-2. [Right Click] Personal -> All Tasks -> Advanced Operations -> Create Custom Request
-3. Certificate Enrollment Window
-   1. Select Certificate Enrollment Policy
-      1. Custom Request -> Proceed without enrollment policy
-   2. Custom request
-      1. Template: (No Template)
-      2. Request format: `PKCS #10`
-   3. Certificate Information
-      1. Expand "Details" in custom request
-      2. Properties
-         1. General Tab:
-            1. Include a Friendly Name
-            2. Optionally a description
-         2. Subject Tab:
-            1. Subject Name
-               1. Type - Common Name:
-                  1. Insert the primary DNS name for the cert
-                  2. Example: `thing.example.com`
-               2. Type - Alternative Names:
-                  1. Type the primary DNS name for the cert
-                  2. Example: `thing.example.com`
-               3. Optionally add any additional "Alternative Names" as needed
-                  1. DNS
-                  2. IP
-         3. Extensions Tab:
-            1. Key usage:
-               1. Digital signature
-               2. Key encipherment
-            2. Extended Key Usage
-               1. Server Authentication
-         4. Private Key Tab:
-            1. Key options:
-               1. Key size: `4096`
-               2. Select "Make private key exportable"
-            2. Optional
-               1. If you need to change the hashing algorithm change it in "Select Hashing Algorithm"
-      3. Select Apply
-      4. Select OK
-   4. Select Next
-   5. Save the Request to the file system
+1. Open Certificates Console
+   1. Run `certlm.msc`
+2. Create new Certificate Request
+   1. *[Right Click]* Personal -> All Tasks -> Advanced Operations -> Create Custom Request
+   2. Certificate Enrollment Window
+      1. Before You Begin
+         1. *Next*
+      2. Select Certificate Enrollment Policy
+         1. Custom Request -> Proceed without enrollment policy
+      3. Custom request
+         1. Template: `(No Template) CNG key`
+         2. Request format: `PKCS #10`
+      4. Certificate Information
+         1. Expand "Details" in custom request
+         2. Properties
+            1. General Tab:
+               1. Include a Friendly Name
+               2. Optionally a description
+            2. Subject Tab:
+               1. Subject Name
+                  1. Type - Common Name:
+                     1. Insert the primary DNS name for the cert
+                     2. Example: `thing.example.com`
+                  2. Type - Alternative Names:
+                     1. Type the primary DNS name for the cert
+                     2. Example: `thing.example.com`
+                  3. Optionally add any additional "Alternative Names" as needed
+                     1. DNS
+                     2. IP
+            3. Extensions Tab:
+               1. Key usage:
+                  1. Digital signature
+                  2. Key encipherment
+               2. Extended Key Usage
+                  1. Server Authentication
+            4. Private Key Tab:
+               1. Key options:
+                  1. Key size: `4096`
+                  2. Select "Make private key exportable"
+               2. Optional
+                  1. If you need to change the hashing algorithm change it in "Select Hashing Algorithm"
+         3. Select Apply
+         4. Select OK
+      5. Select Next
+      6. Save the Request to the servers file system
+         - This will be denoted as the ***Certificate Request File*** in further sections.
 
 ### Generate Certificate
 
