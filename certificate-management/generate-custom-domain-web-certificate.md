@@ -128,12 +128,8 @@ This is a guide to create a web server certificate signed by a Root CA on Window
 
 ### Export .pfx Certificate Bundle
 
-1. Open Certificates
-   1. Run `mmc.exe`
-   2. "File" -> "Add/Remove Snap-in"
-      1. Add "Certificates"
-      2. Select "Computer account"
-      3. Ok
+1. Open Certificates Console
+   1. Run `certlm.msc`
 2. Find the certificate being exported
    1. Usually found in "Personal" -> "Certificates"
 3. Right click the certificate select "All tasks" -> "Export"
