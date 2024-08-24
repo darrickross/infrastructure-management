@@ -13,13 +13,13 @@ This is a guide to create a web server certificate signed by a Root CA on Window
 
 ## Pre-requirements
 
-Requires Windows Server Role:
+### Requires Windows Server Role
 
 - Active Directory Certificate Services
   - Certificate Authority
   - Certificate Authority Web Enrollment
 
-Requires changes to Certificate Templates
+### Requires changes to Certificate Templates
 
 1. Open `certsrv.msc`
 2. Expand `Your-Domain-CA`
@@ -86,11 +86,18 @@ Requires changes to Certificate Templates
 1. Navigate <http://localhost/certsrv/> in any browser on the Windows Server Certificate Authority
 2. Select "Request a certificate"
 3. Select "Advanced certificate request"
-   1. Paste the contents of the Request file you generated in the last step
+   1. Saved Request:
+      - Paste the contents of the ***Certificate Request File*** you generated in the [last step](#generate-certificate-request)
    2. Certificate Template:
-      1. "Web Server"
-4. Submit
-5. Download certificate
+      - "Web Server"
+
+      > [!NOTE]
+      > If you do not see `Web Server` in the drop down you must complete the pre-step [Requires changes to Certificate Templates](#requires-changes-to-certificate-templates)
+
+   3. Submit
+4. Download certificate
+   - Keep `DER encoded` option
+   - Save the certificate to your file system, this will be used in the next step as ***Issued Certificate File***
 
 ### Import Certificate to the Domain
 
