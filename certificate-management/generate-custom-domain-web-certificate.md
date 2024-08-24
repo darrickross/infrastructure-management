@@ -5,10 +5,10 @@ This is a guide to create a web server certificate signed by a Root CA on Window
 ## Repository Navigation Guide
 
 - [*root directory*](../README.md)
-  - [/certificate-management](./README.md) - ***YOU ARE HERE***
+  - [/certificate-management](./README.md)
     - convert_pfx.sh
       - Script for managing and extracting components from a `.pfx` (PKCS12) bundle
-    - [`README-Generate-new-certificate.md`](.) - ***YOU ARE HERE***
+    - [`generate-new-certificate.md`](.) - ***YOU ARE HERE***
       - Guide to creating a new `.pfx` (PKCS12) bundle
 
 ## Pre-requirements
