@@ -105,8 +105,26 @@ This is a guide to create a web server certificate signed by a Root CA on Window
    1. Run `certlm.msc`
 2. Right click "Personal" (under Certificates)
    1. Select "All task" -> "Import"
-   2. Select the certificate you created in the last step
-   3. Make sure the "Personal" store is the Certificate Store is selected
+   2. Certificate Import Wizard
+      1. Welcome to the Certificate Import Wizard
+         - Next
+      2. File to Import
+         - Select the ***Issued Certificate File*** from the [last step](#issue-new-certificate)
+      3. Certificate Store
+         - Leave Certificate store as "Personal"
+      4. Completing the Certificate Import Wizard
+         - Review settings
+         - Finish
+      5. Make sure operation was successful
+
+   > [!TIP]
+   > How to find the newly imported certificate?
+   >
+   > 1. Ensure you have the Certificate menu open
+   > 2. Expand the "Certificates (Local Computer)" section on the left
+   > 3. Expand "Personal"
+   > 4. Select "Certificates" sub folder
+   > 5. In the menu on the center, find the certificate by the "Friendly Name" set during [Generate Certificate Request](#generate-certificate-request)
 
 ### Export .pfx Certificate Bundle
 
