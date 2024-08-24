@@ -101,12 +101,8 @@ This is a guide to create a web server certificate signed by a Root CA on Window
 
 ### Import Certificate to the Domain
 
-1. Open Certificates
-   1. Run `mmc.exe`
-   2. "File" -> "Add/Remove Snap-in"
-      1. Add "Certificates"
-      2. Select "Computer account"
-      3. Ok
+1. Open Certificates Console
+   1. Run `certlm.msc`
 2. Right click "Personal" (under Certificates)
    1. Select "All task" -> "Import"
    2. Select the certificate you created in the last step
