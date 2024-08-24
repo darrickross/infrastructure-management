@@ -81,7 +81,7 @@ This is a guide to create a web server certificate signed by a Root CA on Window
       6. Save the Request to the servers file system
          - This will be denoted as the ***Certificate Request File*** in further sections.
 
-### Generate Certificate
+### Issue New Certificate
 
 1. Navigate <http://localhost/certsrv/> in any browser on the Windows Server Certificate Authority
 2. Select "Request a certificate"
