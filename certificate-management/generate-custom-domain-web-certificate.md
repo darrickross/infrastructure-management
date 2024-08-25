@@ -36,22 +36,40 @@ This is a guide to create a web server certificate signed by a Root CA on Window
 
 1. Open Certificates Console
    1. Run `certlm.msc`
+
+      ![alt text](../images/certificate-management/generate-custom-domain-web-certificate/run-certlm_msc.png)
+
 2. Create new Certificate Request
    1. *[Right Click]* Personal -> All Tasks -> Advanced Operations -> Create Custom Request
+
+      ![alt text](../images/certificate-management/generate-custom-domain-web-certificate/all-tasks-advanced-operations-create-custom-request.png)
+
    2. Certificate Enrollment Window
       1. Before You Begin
          1. *Next*
       2. Select Certificate Enrollment Policy
          1. Custom Request -> Proceed without enrollment policy
+
+            ![alt text](../images/certificate-management/generate-custom-domain-web-certificate/select-certificate-enrollment-policy.png)
+
       3. Custom request
          1. Template: `(No Template) CNG key`
          2. Request format: `PKCS #10`
+
+            ![alt text](../images/certificate-management/generate-custom-domain-web-certificate/custom-request.png)
+
       4. Certificate Information
          1. Expand "Details" in custom request
+
+            ![alt text](../images/certificate-management/generate-custom-domain-web-certificate/certificate-information.png)
+
          2. Properties
             1. General Tab:
                1. Include a Friendly Name
                2. Optionally a description
+
+                  ![alt text](../images/certificate-management/generate-custom-domain-web-certificate/general-tab.png)
+
             2. Subject Tab:
                1. Subject Name
                   1. Type - Common Name:
@@ -63,20 +81,35 @@ This is a guide to create a web server certificate signed by a Root CA on Window
                   3. Optionally add any additional "Alternative Names" as needed
                      1. DNS
                      2. IP
+
+                  ![alt text](../images/certificate-management/generate-custom-domain-web-certificate/subject-tab.png)
+
             3. Extensions Tab:
                1. Key usage:
                   1. Digital signature
                   2. Key encipherment
+
+                  ![alt text](../images/certificate-management/generate-custom-domain-web-certificate/extensions-tab-key-usage.png)
+
                2. Extended Key Usage
                   1. Server Authentication
+
+                     ![alt text](../images/certificate-management/generate-custom-domain-web-certificate/extensions-tab-extended-key-usage.png)
+
             4. Private Key Tab:
                1. Key options:
                   1. Key size: `4096`
                   2. Select "Make private key exportable"
                2. Optional
                   1. If you need to change the hashing algorithm change it in "Select Hashing Algorithm"
+
+               ![alt text](../images/certificate-management/generate-custom-domain-web-certificate/private-key-tab.png)
+
          3. Select Apply
          4. Select OK
+
+         ![alt text](../images/certificate-management/generate-custom-domain-web-certificate/certificate-information-post.png)
+
       5. Select Next
       6. Save the Request to the servers file system
          - This will be denoted as the ***Certificate Request File*** in further sections.
@@ -87,7 +120,13 @@ This is a guide to create a web server certificate signed by a Root CA on Window
 ### Issue New Certificate
 
 1. Navigate <http://localhost/certsrv/> in any browser on the Windows Server Certificate Authority
+
+   ![alt text](../images/certificate-management/generate-custom-domain-web-certificate/certsrv-website.png)
+
 2. Select "Request a certificate"
+
+   ![alt text](../images/certificate-management/generate-custom-domain-web-certificate/request-a-certificate.png)
+
 3. Select "Advanced certificate request"
    1. Saved Request:
       - Paste the contents of the ***Certificate Request File*** you generated in the [last step](#generate-certificate-request)
@@ -97,21 +136,30 @@ This is a guide to create a web server certificate signed by a Root CA on Window
       > [!NOTE]
       > If you do not see `Web Server` in the drop down you must complete the pre-step [Requires changes to Certificate Templates](#requires-changes-to-certificate-templates)
 
+      ![alt text](../images/certificate-management/generate-custom-domain-web-certificate/submit-a-certificate-request.png)
+
    3. Submit
 4. Download certificate
    - Keep `DER encoded` option
    - Save the certificate to your file system, this will be used in the next step as ***Issued Certificate File***
+
+   ![alt text](../images/certificate-management/generate-custom-domain-web-certificate/certificate-issued.png)
 
 ### Import Certificate to the Domain
 
 1. Open Certificates Console
    1. Run `certlm.msc`
 
+      ![alt text](../images/certificate-management/generate-custom-domain-web-certificate/run-certlm_msc.png)
+
       > [!TIP]
       > "Certificate" Microsoft Management Console might still be open from the [first step](#generate-certificate-request)
 
 2. Right click "Personal" (under Certificates)
    1. Select "All task" -> "Import"
+
+      ![alt text](../images/certificate-management/generate-custom-domain-web-certificate/all-tasks-import.png)
+
    2. Certificate Import Wizard
       1. Welcome to the Certificate Import Wizard
          - Next
@@ -119,10 +167,15 @@ This is a guide to create a web server certificate signed by a Root CA on Window
          - Select the ***Issued Certificate File*** from the [last step](#issue-new-certificate)
       3. Certificate Store
          - Leave Certificate store as "Personal"
+
+         ![alt text](../images/certificate-management/generate-custom-domain-web-certificate/certificate-store.png)
+
       4. Completing the Certificate Import Wizard
          - Review settings
          - Finish
       5. Make sure operation was successful
+
+         ![alt text](../images/certificate-management/generate-custom-domain-web-certificate/certificate-import-wizard-successful.png)
 
    > [!TIP]
    > How to find the newly imported certificate?
@@ -138,32 +191,48 @@ This is a guide to create a web server certificate signed by a Root CA on Window
 1. Open Certificates Console
    1. Run `certlm.msc`
 
+      ![alt text](../images/certificate-management/generate-custom-domain-web-certificate/run-certlm_msc.png)
+
       > [!TIP]
       > "Certificate" Microsoft Management Console should still be open from the [previous step](#import-certificate-to-the-domain)
 
 2. Find the certificate being exported
    1. Usually found in "Personal" -> "Certificates"
 3. Right click the certificate select "All tasks" -> "Export"
+
+   ![alt text](../images/certificate-management/generate-custom-domain-web-certificate/all-taks-export.png)
+
    1. Certificate Export Wizard
       1. Welcome to the Certificate Export Wizard
          - Next
       2. Export Private Key
          - Select "Yes, export the private key"
          - Next
+
+         ![alt text](../images/certificate-management/generate-custom-domain-web-certificate/certificate-export-wizard-export-private-key.png)
+
       3. Export File Format
          - "Personal Information Exchange - PKCS #12 (.PFX)"
             - Include all certificate in the certificate path if possible
             - Enable certificate privacy
+
+         ![alt text](../images/certificate-management/generate-custom-domain-web-certificate/certificate-export-wizard-export-file-format.png)
+
       4. Security
          1. Password
             - Enable "Password" setting
             - Type and Save a password in your password manager
          2. Encryption
             - Select `AES256-SHA256`
+
+         ![alt text](../images/certificate-management/generate-custom-domain-web-certificate/certificate-export-wizard-security.png)
+
       5. Completing the Certificate Export Wizard
          - Review settings
          - Finish
       6. Ensure the export was successful
+
+         ![alt text](../images/certificate-management/generate-custom-domain-web-certificate/certificate-export-wizard-successful.png)
 
 ### Convert `.pfx` to `.pem` format
 
