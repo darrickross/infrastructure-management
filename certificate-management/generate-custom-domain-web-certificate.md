@@ -144,32 +144,73 @@ This is a guide to create a web server certificate signed by a Root CA on Window
 2. Find the certificate being exported
    1. Usually found in "Personal" -> "Certificates"
 3. Right click the certificate select "All tasks" -> "Export"
-   1. Select "Yes, export the private key"
-      1. "Personal Information Exchange - PKCS #12 (.PFX)"
-         1. Include all certificate in the certificate path if possible
-         2. Enable certificate privacy
-   2. Enable a password
-   3. Set Encryption to `AES256-SHA256`
-   4. Save the file
-   5. Ok
+   1. Certificate Export Wizard
+      1. Welcome to the Certificate Export Wizard
+         - Next
+      2. Export Private Key
+         - Select "Yes, export the private key"
+         - Next
+      3. Export File Format
+         - "Personal Information Exchange - PKCS #12 (.PFX)"
+            - Include all certificate in the certificate path if possible
+            - Enable certificate privacy
+      4. Security
+         1. Password
+            - Enable "Password" setting
+            - Type and Save a password in your password manager
+         2. Encryption
+            - Select `AES256-SHA256`
+      5. Completing the Certificate Export Wizard
+         - Review settings
+         - Finish
+      6. Ensure the export was successful
 
 ### Convert `.pfx` to `.pem` format
 
-- Export the Private Key ***with a password***
-  - `openssl pkcs12 -in example.pfx -nocerts -out example.pem`
-- Export the Private Key ***without a password***
-  - `openssl pkcs12 -in example.pfx -noenc -nocerts | openssl pkcs8 -nocrypt -out example.insecure.pem`
-- Export the Client certificate
-  - `openssl pkcs12 -in example.pfx -clcerts -nokeys | openssl x509 -out example.crt`
-- Export the Chain CA Certificate
-  - `openssl pkcs12 -in example.pfx -cacerts -nokeys | openssl x509 -out example.chain.crt`
+> [!IMPORTANT]
+> These commands assume you have a command line terminal with `openssl` available
+>
+> - Unix based system usually have this installed by default, otherwise install from your package manager of choice.
+> - Windows users will likely not have it available by default, see [a stack overflow post](https://stackoverflow.com/a/51757939) on installing `openssl` on windows by installing `git` for windows ith `openssl`
+
+#### Export the Private Key ***with*** a password
+
+   > [!WARNING]
+   > This will ask you for a new password to encrypt the private key `example.pem` with on creation.
+
+   ```sh
+   openssl pkcs12 -in example.pfx -nocerts -out example.pem
+   ```
+
+#### Export the Private Key ***without*** a password
+
+   > [!CAUTION]
+   > This will create an unprotected private key. Be sure to protect this file from exposure!
+
+   ```sh
+   openssl pkcs12 -in example.pfx -noenc -nocerts | openssl pkcs8 -nocrypt -out example.insecure.pem
+   ```
+
+#### Export the Client certificate
+
+   ```sh
+   openssl pkcs12 -in example.pfx -clcerts -nokeys | openssl x509 -out example.crt
+   ```
+
+#### Export the Chain CA Certificate
+
+   ```sh
+   openssl pkcs12 -in example.pfx -cacerts -nokeys | openssl x509 -out example.chain.crt
+   ```
 
 > [!NOTE]
 > The second openssl command is used to remove extra bag details left in from the openssl pkcs1 format. Allowing you to get just the PEM format for the private key and certificate(s).
 
-## Import Root CA into Trusted Certificates
+## Errata
 
-### Windows
+### Import Root CA into Trusted Certificates
+
+#### Windows
 
 1. Open `Certificates - Local Computer`
    1. Windows search `certlm.msc`
