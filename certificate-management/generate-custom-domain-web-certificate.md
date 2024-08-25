@@ -114,8 +114,8 @@ This is a guide to create a web server certificate signed by a Root CA on Window
       6. Save the Request to the servers file system
          - This will be denoted as the ***Certificate Request File*** in further sections.
 
-   > [!NOTE]
-   > You will need the "Certificate" Microsoft Management Console in a future step, it might be helpful to keep this window open, and optionally minimized.
+> [!NOTE]
+> You will need the "Certificate" Microsoft Management Console in a future step, it might be helpful to keep this window open, and optionally minimized.
 
 ### Issue New Certificate
 
@@ -147,13 +147,13 @@ This is a guide to create a web server certificate signed by a Root CA on Window
 
 ### Import Certificate to the Domain
 
+> [!TIP]
+> "Certificate" Microsoft Management Console might still be open from the [first step](#generate-certificate-request)
+
 1. Open Certificates Console
    1. Run `certlm.msc`
 
       ![alt text](../images/certificate-management/generate-custom-domain-web-certificate/run-certlm_msc.png)
-
-      > [!TIP]
-      > "Certificate" Microsoft Management Console might still be open from the [first step](#generate-certificate-request)
 
 2. Right click "Personal" (under Certificates)
    1. Select "All task" -> "Import"
@@ -177,24 +177,24 @@ This is a guide to create a web server certificate signed by a Root CA on Window
 
          ![alt text](../images/certificate-management/generate-custom-domain-web-certificate/certificate-import-wizard-successful.png)
 
-   > [!TIP]
-   > How to find the newly imported certificate?
-   >
-   > 1. Ensure you have the Certificate menu open
-   > 2. Expand the "Certificates (Local Computer)" section on the left
-   > 3. Expand "Personal"
-   > 4. Select "Certificates" sub folder
-   > 5. In the menu on the center, find the certificate by the "Friendly Name" set during [Generate Certificate Request](#generate-certificate-request)
+> [!TIP]
+> How to find the newly imported certificate?
+>
+> 1. Ensure you have the Certificate menu open
+> 2. Expand the "Certificates (Local Computer)" section on the left
+> 3. Expand "Personal"
+> 4. Select "Certificates" sub folder
+> 5. In the menu on the center, find the certificate by the "Friendly Name" set during [Generate Certificate Request](#generate-certificate-request)
 
 ### Export .pfx Certificate Bundle
+
+> [!TIP]
+> "Certificate" Microsoft Management Console should still be open from the [previous step](#import-certificate-to-the-domain)
 
 1. Open Certificates Console
    1. Run `certlm.msc`
 
       ![alt text](../images/certificate-management/generate-custom-domain-web-certificate/run-certlm_msc.png)
-
-      > [!TIP]
-      > "Certificate" Microsoft Management Console should still be open from the [previous step](#import-certificate-to-the-domain)
 
 2. Find the certificate being exported
    1. Usually found in "Personal" -> "Certificates"
