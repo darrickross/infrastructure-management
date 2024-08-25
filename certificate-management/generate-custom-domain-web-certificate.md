@@ -221,9 +221,12 @@ This is a guide to create a web server certificate signed by a Root CA on Window
       4. Security
          1. Password
             - Enable "Password" setting
-            - Type and Save a password in your password manager
+            - Type a password which will be used to encrypt the `.pfx` file generated
          2. Encryption
             - Select `AES256-SHA256`
+
+         > [!IMPORTANT]
+         > Save this password in your password manager!
 
          ![alt text](../images/certificate-management/generate-custom-domain-web-certificate/certificate-export-wizard-security.png)
 
