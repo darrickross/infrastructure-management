@@ -30,9 +30,9 @@ This is a guide to create a web server certificate signed by a Root CA on Window
       2. Allow `Enroll` Permission
       3. Select "OK"
 
-## Generate Web Certificate
+## Generate Web Server Certificate
 
-### Generate Certificate Request
+### Generate Web Server Certificate Request
 
 1. Open Certificates Console
    1. Run `certlm.msc`
@@ -117,7 +117,7 @@ This is a guide to create a web server certificate signed by a Root CA on Window
 > [!NOTE]
 > You will need the "Certificate" Microsoft Management Console in a future step, it might be helpful to keep this window open, and optionally minimized.
 
-### Issue New Certificate
+### Issue New Web Server Certificate
 
 1. Navigate <http://localhost/certsrv/> in any browser on the Windows Server Certificate Authority
 
@@ -129,7 +129,7 @@ This is a guide to create a web server certificate signed by a Root CA on Window
 
 3. Select "Advanced certificate request"
    1. Saved Request:
-      - Paste the contents of the ***Certificate Request File*** you generated in the [last step](#generate-certificate-request)
+      - Paste the contents of the ***Certificate Request File*** you generated in the [last step](#generate-web-server-certificate-request)
    2. Certificate Template:
       - "Web Server"
 
@@ -145,10 +145,10 @@ This is a guide to create a web server certificate signed by a Root CA on Window
 
    ![alt text](../images/certificate-management/generate-custom-domain-web-certificate/certificate-issued.png)
 
-### Import Certificate to the Domain
+### Import Web Server Certificate to the Domain
 
 > [!TIP]
-> "Certificate" Microsoft Management Console might still be open from the [first step](#generate-certificate-request)
+> "Certificate" Microsoft Management Console might still be open from the [first step](#generate-web-server-certificate-request)
 
 1. Open Certificates Console
    1. Run `certlm.msc`
@@ -164,7 +164,7 @@ This is a guide to create a web server certificate signed by a Root CA on Window
       1. Welcome to the Certificate Import Wizard
          - Next
       2. File to Import
-         - Select the ***Issued Certificate File*** from the [last step](#issue-new-certificate)
+         - Select the ***Issued Certificate File*** from the [last step](#issue-new-web-server-certificate)
       3. Certificate Store
          - Leave Certificate store as "Personal"
 
@@ -184,12 +184,12 @@ This is a guide to create a web server certificate signed by a Root CA on Window
 > 2. Expand the "Certificates (Local Computer)" section on the left
 > 3. Expand "Personal"
 > 4. Select "Certificates" sub folder
-> 5. In the menu on the center, find the certificate by the "Friendly Name" set during [Generate Certificate Request](#generate-certificate-request)
+> 5. In the menu on the center, find the certificate by the "Friendly Name" set during [Generate Certificate Request](#generate-web-server-certificate-request)
 
-### Export .pfx Certificate Bundle
+### Export .pfx Web Server Certificate Bundle
 
 > [!TIP]
-> "Certificate" Microsoft Management Console should still be open from the [previous step](#import-certificate-to-the-domain)
+> "Certificate" Microsoft Management Console should still be open from the [previous step](#import-web-server-certificate-to-the-domain)
 
 1. Open Certificates Console
    1. Run `certlm.msc`
