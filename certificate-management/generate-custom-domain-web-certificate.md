@@ -11,6 +11,27 @@ This is a guide to create a web server certificate signed by a Root CA on Window
     - [`generate-new-certificate.md`](.) - ***YOU ARE HERE***
       - Guide to creating a new `.pfx` (PKCS12) bundle
 
+## Table of Contents
+
+- [Repository Navigation Guide](#repository-navigation-guide)
+- [Table of Contents](#table-of-contents)
+- [Pre-requirements](#pre-requirements)
+  - [Requires Windows Server Role](#requires-windows-server-role)
+  - [Requires changes to Certificate Templates](#requires-changes-to-certificate-templates)
+- [Generate Web Server Certificate](#generate-web-server-certificate)
+  - [Generate Web Server Certificate Request](#generate-web-server-certificate-request)
+  - [Issue New Web Server Certificate](#issue-new-web-server-certificate)
+  - [Import Web Server Certificate to the Domain](#import-web-server-certificate-to-the-domain)
+  - [Export .pfx Web Server Certificate Bundle](#export-pfx-web-server-certificate-bundle)
+  - [Convert `.pfx` to `.pem` format](#convert-pfx-to-pem-format)
+    - [Export the Private Key ***with*** a password](#export-the-private-key-with-a-password)
+    - [Export the Private Key ***without*** a password](#export-the-private-key-without-a-password)
+    - [Export the Client certificate](#export-the-client-certificate)
+    - [Export the Chain CA Certificate](#export-the-chain-ca-certificate)
+- [Errata](#errata)
+  - [Import Root CA into Trusted Certificates](#import-root-ca-into-trusted-certificates)
+    - [Windows](#windows)
+
 ## Pre-requirements
 
 ### Requires Windows Server Role
