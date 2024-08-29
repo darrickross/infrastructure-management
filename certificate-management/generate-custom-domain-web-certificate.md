@@ -17,7 +17,7 @@ This is a guide to create a web server certificate signed by a Root CA on Window
 - [Table of Contents](#table-of-contents)
 - [Pre-requirements](#pre-requirements)
   - [Requires Windows Server Role](#requires-windows-server-role)
-  - [Requires changes to Certificate Templates](#requires-changes-to-certificate-templates)
+  - [Enable Certificate Template for Web Server](#enable-certificate-template-for-web-server)
 - [Generate Web Server Certificate](#generate-web-server-certificate)
   - [Generate Web Server Certificate Request](#generate-web-server-certificate-request)
   - [Issue New Web Server Certificate](#issue-new-web-server-certificate)
@@ -40,11 +40,18 @@ This is a guide to create a web server certificate signed by a Root CA on Window
   - Certificate Authority
   - Certificate Authority Web Enrollment
 
-### Requires changes to Certificate Templates
+### Enable Certificate Template for Web Server
 
-1. Open `certsrv.msc`
+1. Open Certificates Console
+   1. Run `certsrv.msc`
+
+      ![alt text](../images/certificate-management/generate-custom-domain-web-certificate/run-certsrv_msc.png)
+
 2. Expand `Your-Domain-CA`
 3. Right Click "Certificate Template" -> Select "Manage"
+
+   ![alt text](../images/certificate-management/generate-custom-domain-web-certificate/manage-certificate-templates.png)
+
    1. Right click "Web server" -> Select "Properties"
    2. Select Security Tab
       1. Select `Authenticated Users`
@@ -155,7 +162,7 @@ This is a guide to create a web server certificate signed by a Root CA on Window
       - "Web Server"
 
       > [!NOTE]
-      > If you do not see `Web Server` in the drop down you must complete the pre-step [Requires changes to Certificate Templates](#requires-changes-to-certificate-templates)
+      > If you do not see `Web Server` in the drop down you must complete the pre-step [Enable Certificate Template for Web Server](#enable-certificate-template-for-web-server)
 
       ![alt text](../images/certificate-management/generate-custom-domain-web-certificate/submit-a-certificate-request.png)
 
