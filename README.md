@@ -6,7 +6,7 @@ While this is written towards a personal homelab environments, the this can be a
 
 ## Repository Navigation Guide
 
-- [*root directory*](README.md) - ***YOU ARE HERE***
+- [*root directory*](README.md) <------------ ***YOU ARE HERE***
   - [/certificate-management](./certificate-management/README.md)
     - Scripts and guides designed to manage certificates and cryptographic components.
 
