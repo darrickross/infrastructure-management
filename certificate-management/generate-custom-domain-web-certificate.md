@@ -10,6 +10,8 @@ This is a guide to create a web server certificate signed by a Root CA on Window
       - Script for managing and extracting components from a `.pfx` (PKCS12) bundle
     - [`generate-new-certificate.md`](.) - ***YOU ARE HERE***
       - Guide to creating a new `.pfx` (PKCS12) bundle used as a web server certificate
+    - [`generate-remote-desktop-certificate.md`](./generate-remote-desktop-certificate.md)
+      - Guide to creating a new `.pfx` (PKCS12) bundle used as a remote desktop certificate
 
 ## Table of Contents
 

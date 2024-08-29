@@ -10,6 +10,8 @@ The `certificate-management` folder contains scripts and guides designed to mana
       - Script for managing and extracting components from a `.pfx` (PKCS12) bundle
     - [`generate-custom-domain-web-certificate.md`](./generate-custom-domain-web-certificate.md)
       - Guide to creating a new `.pfx` (PKCS12) bundle used as a web server certificate
+    - [`generate-remote-desktop-certificate.md`](./generate-remote-desktop-certificate.md)
+      - Guide to creating a new `.pfx` (PKCS12) bundle used as a remote desktop certificate
 
 ## `convert_pfx.sh`
 
