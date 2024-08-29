@@ -12,3 +12,8 @@ This is a guide to create a remote desktop certificate signed by a Root CA on Wi
       - Guide to creating a new `.pfx` (PKCS12) bundle used as a web server certificate
     - [`generate-remote-desktop-certificate.md`](.) <------------ ***YOU ARE HERE***
       - Guide to creating a new `.pfx` (PKCS12) bundle used as a remote desktop certificate
+
+## Table of Contents
+
+- [Repository Navigation Guide](#repository-navigation-guide)
+- [Table of Contents](#table-of-contents)
