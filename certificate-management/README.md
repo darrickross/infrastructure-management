@@ -5,7 +5,7 @@ The `certificate-management` folder contains scripts and guides designed to mana
 ## Repository Navigation Guide
 
 - [*root directory*](../README.md)
-  - [/certificate-management](./README.md) - ***YOU ARE HERE***
+  - [/certificate-management](.) - ***YOU ARE HERE***
     - [`convert_pfx.sh`](#convert_pfxsh)
       - Script for managing and extracting components from a `.pfx` (PKCS12) bundle
     - [`generate-custom-domain-web-certificate.md`](./generate-custom-domain-web-certificate.md)
