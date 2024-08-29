@@ -9,7 +9,7 @@ This is a guide to create a web server certificate signed by a Root CA on Window
     - convert_pfx.sh
       - Script for managing and extracting components from a `.pfx` (PKCS12) bundle
     - [`generate-new-certificate.md`](.) - ***YOU ARE HERE***
-      - Guide to creating a new `.pfx` (PKCS12) bundle
+      - Guide to creating a new `.pfx` (PKCS12) bundle used as a web server certificate
 
 ## Table of Contents
 
