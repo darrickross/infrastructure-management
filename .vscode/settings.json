@@ -11,10 +11,12 @@
     "-pubkey",
     "certlm.msc",
     "certsrv.msc",
+    "ECDH_P",
     "homelab",
     "PKCS",
     "pkcs12",
-    "pkcs8"
+    "pkcs8",
+    "xrdp"
   ],
   "[jsonc]": {
     "editor.insertSpaces": true,
