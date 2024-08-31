@@ -47,12 +47,12 @@ This is a guide to create a web server certificate signed by a Root CA on Window
 1. Open Certificates Console
    1. Run `certsrv.msc`
 
-      ![alt text](../images/certificate-management/generate-custom-domain-web-certificate/run-certsrv_msc.png)
+      ![alt text](../images/certificate-management/run-certsrv_msc.png)
 
 2. Expand `Your-Domain-CA`
 3. Right Click "Certificate Template" -> Select "Manage"
 
-   ![alt text](../images/certificate-management/generate-custom-domain-web-certificate/manage-certificate-templates.png)
+   ![alt text](../images/certificate-management/manage-certificate-templates.png)
 
    1. Right click "Web server" -> Select "Properties"
    2. Select Security Tab
@@ -67,7 +67,7 @@ This is a guide to create a web server certificate signed by a Root CA on Window
 1. Open Certificates Console
    1. Run `certlm.msc`
 
-      ![alt text](../images/certificate-management/generate-custom-domain-web-certificate/run-certlm_msc.png)
+      ![alt text](../images/certificate-management/run-certlm_msc.png)
 
 2. Create new Certificate Request
    1. *[Right Click]* Personal -> All Tasks -> Advanced Operations -> Create Custom Request
@@ -183,7 +183,7 @@ This is a guide to create a web server certificate signed by a Root CA on Window
 1. Open Certificates Console
    1. Run `certlm.msc`
 
-      ![alt text](../images/certificate-management/generate-custom-domain-web-certificate/run-certlm_msc.png)
+      ![alt text](../images/certificate-management/run-certlm_msc.png)
 
 2. Right click "Personal" (under Certificates)
    1. Select "All task" -> "Import"
@@ -224,7 +224,7 @@ This is a guide to create a web server certificate signed by a Root CA on Window
 1. Open Certificates Console
    1. Run `certlm.msc`
 
-      ![alt text](../images/certificate-management/generate-custom-domain-web-certificate/run-certlm_msc.png)
+      ![alt text](../images/certificate-management/run-certlm_msc.png)
 
 2. Find the certificate being exported
    1. Usually found in "Personal" -> "Certificates"
