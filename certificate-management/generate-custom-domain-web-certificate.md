@@ -101,14 +101,15 @@ This is a guide to create a web server certificate signed by a Root CA on Window
                         ![alt text](../images/certificate-management/generate-custom-domain-web-certificate/general-tab.png)
 
                 2. Subject Tab:
-                    1. Subject Name
+                    1. Subject name
                         1. Type - Common Name:
                             1. Insert the primary DNS name for the cert
                             2. Example: `thing.example.com`
-                        2. Type - Alternative Names:
+                    2. Alternative Name
+                        1. Type - Alternative names:
                             1. Type the primary DNS name for the cert
                             2. Example: `thing.example.com`
-                        3. Optionally add any additional "Alternative Names" as needed
+                        2. Optionally add any additional Alternative names "types" as needed
                             1. DNS
                             2. IP
 
