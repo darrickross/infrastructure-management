@@ -25,7 +25,7 @@
   "[markdown]": {
     "editor.defaultFormatter": "DavidAnson.vscode-markdownlint",
     "editor.insertSpaces": true,
-    "editor.tabSize": 2
+    "editor.tabSize": 4
   },
   "[shellscript]": {
     "editor.defaultFormatter": "foxundermoon.shell-format",

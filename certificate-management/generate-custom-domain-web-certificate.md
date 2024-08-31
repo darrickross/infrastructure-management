@@ -45,104 +45,104 @@ This is a guide to create a web server certificate signed by a Root CA on Window
 ### Enable Certificate Template for Web Server
 
 1. Open Certificates Console
-   1. Run `certsrv.msc`
+    1. Run `certsrv.msc`
 
-      ![alt text](../images/certificate-management/run-certsrv_msc.png)
+        ![alt text](../images/certificate-management/run-certsrv_msc.png)
 
 2. Expand `Your-Domain-CA`
 3. Right Click "Certificate Template" -> Select "Manage"
 
    ![alt text](../images/certificate-management/manage-certificate-templates.png)
 
-   1. Right click "Web server" -> Select "Properties"
-   2. Select Security Tab
-      1. Select `Authenticated Users`
-      2. Allow `Enroll` Permission
-      3. Select "OK"
+    1. Right click "Web server" -> Select "Properties"
+    2. Select Security Tab
+        1. Select `Authenticated Users`
+        2. Allow `Enroll` Permission
+        3. Select "OK"
 
 ## Generate Web Server Certificate
 
 ### Generate Web Server Certificate Request
 
 1. Open Certificates Console
-   1. Run `certlm.msc`
+    1. Run `certlm.msc`
 
-      ![alt text](../images/certificate-management/run-certlm_msc.png)
+        ![alt text](../images/certificate-management/run-certlm_msc.png)
 
 2. Create new Certificate Request
-   1. *[Right Click]* Personal -> All Tasks -> Advanced Operations -> Create Custom Request
+    1. *[Right Click]* Personal -> All Tasks -> Advanced Operations -> Create Custom Request
 
-      ![alt text](../images/certificate-management/generate-custom-domain-web-certificate/all-tasks-advanced-operations-create-custom-request.png)
+        ![alt text](../images/certificate-management/generate-custom-domain-web-certificate/all-tasks-advanced-operations-create-custom-request.png)
 
-   2. Certificate Enrollment Window
-      1. Before You Begin
-         1. *Next*
-      2. Select Certificate Enrollment Policy
-         1. Custom Request -> Proceed without enrollment policy
+    2. Certificate Enrollment Window
+        1. Before You Begin
+            1. *Next*
+        2. Select Certificate Enrollment Policy
+            1. Custom Request -> Proceed without enrollment policy
 
-            ![alt text](../images/certificate-management/generate-custom-domain-web-certificate/select-certificate-enrollment-policy.png)
+                ![alt text](../images/certificate-management/generate-custom-domain-web-certificate/select-certificate-enrollment-policy.png)
 
-      3. Custom request
-         1. Template: `(No Template) CNG key`
-         2. Request format: `PKCS #10`
+        3. Custom request
+            1. Template: `(No Template) CNG key`
+            2. Request format: `PKCS #10`
 
-            ![alt text](../images/certificate-management/generate-custom-domain-web-certificate/custom-request.png)
+                ![alt text](../images/certificate-management/generate-custom-domain-web-certificate/custom-request.png)
 
-      4. Certificate Information
-         1. Expand "Details" in custom request
+        4. Certificate Information
+            1. Expand "Details" in custom request
 
-            ![alt text](../images/certificate-management/generate-custom-domain-web-certificate/certificate-information.png)
+                ![alt text](../images/certificate-management/generate-custom-domain-web-certificate/certificate-information.png)
 
-         2. Properties
-            1. General Tab:
-               1. Include a Friendly Name
-               2. Optionally a description
+            2. Properties
+                1. General Tab:
+                    1. Include a Friendly Name
+                    2. Optionally a description
 
-                  ![alt text](../images/certificate-management/generate-custom-domain-web-certificate/general-tab.png)
+                        ![alt text](../images/certificate-management/generate-custom-domain-web-certificate/general-tab.png)
 
-            2. Subject Tab:
-               1. Subject Name
-                  1. Type - Common Name:
-                     1. Insert the primary DNS name for the cert
-                     2. Example: `thing.example.com`
-                  2. Type - Alternative Names:
-                     1. Type the primary DNS name for the cert
-                     2. Example: `thing.example.com`
-                  3. Optionally add any additional "Alternative Names" as needed
-                     1. DNS
-                     2. IP
+                2. Subject Tab:
+                    1. Subject Name
+                        1. Type - Common Name:
+                            1. Insert the primary DNS name for the cert
+                            2. Example: `thing.example.com`
+                        2. Type - Alternative Names:
+                            1. Type the primary DNS name for the cert
+                            2. Example: `thing.example.com`
+                        3. Optionally add any additional "Alternative Names" as needed
+                            1. DNS
+                            2. IP
 
-                  ![alt text](../images/certificate-management/generate-custom-domain-web-certificate/subject-tab.png)
+                      ![alt text](../images/certificate-management/generate-custom-domain-web-certificate/subject-tab.png)
 
-            3. Extensions Tab:
-               1. Key usage:
-                  1. Digital signature
-                  2. Key encipherment
+                3. Extensions Tab:
+                    1. Key usage:
+                        1. Digital signature
+                        2. Key encipherment
 
-                  ![alt text](../images/certificate-management/generate-custom-domain-web-certificate/extensions-tab-key-usage.png)
+                            ![alt text](../images/certificate-management/generate-custom-domain-web-certificate/extensions-tab-key-usage.png)
 
-               2. Extended Key Usage
-                  1. Server Authentication
+                    2. Extended Key Usage
+                        1. Server Authentication
 
-                     ![alt text](../images/certificate-management/generate-custom-domain-web-certificate/extensions-tab-extended-key-usage.png)
+                            ![alt text](../images/certificate-management/generate-custom-domain-web-certificate/extensions-tab-extended-key-usage.png)
 
-            4. Private Key Tab:
-               1. Key options:
-                  1. Key size: `4096`
-                  2. Select "Make private key exportable"
-               2. Optional
-                  1. If you need to change the hashing algorithm change it in "Select Hashing Algorithm"
+                4. Private Key Tab:
+                    1. Key options:
+                        1. Key size: `4096`
+                        2. Select "Make private key exportable"
+                    2. Optional
+                        1. If you need to change the hashing algorithm change it in "Select Hashing Algorithm"
 
-               ![alt text](../images/certificate-management/generate-custom-domain-web-certificate/private-key-tab.png)
+                  ![alt text](../images/certificate-management/generate-custom-domain-web-certificate/private-key-tab.png)
 
-         3. Select Apply
-         4. Select OK
+            3. Select Apply
+            4. Select OK
 
-         ![alt text](../images/certificate-management/generate-custom-domain-web-certificate/certificate-information-post.png)
+                ![alt text](../images/certificate-management/generate-custom-domain-web-certificate/certificate-information-post.png)
 
-      5. Select Next
-      6. Save the Request to the servers file system
-         - This will be denoted as the ***Certificate Request File*** in further sections.
+        5. Select Next
+        6. Save the Request to the servers file system
+          - This will be denoted as the ***Certificate Request File*** in further sections.
 
 > [!NOTE]
 > You will need the "Certificate" Microsoft Management Console in a future step, it might be helpful to keep this window open, and optionally minimized.
