@@ -61,7 +61,20 @@ This is a guide to create a remote desktop certificate signed by a Root CA on Wi
         3. Include this information in alternate subject name:
             - DNS name
             - User principal name (UPN)
-    4. Optional - Suggested Security Changes
+    4. Select "Extensions" Tab
+        1. Select "Application Policy"
+        2. Select Edit button
+        3. Ensure "Sever Authentication" is in the list of "Application policies"
+            1. If not,
+            2. Select "Add"
+            3. Find and double click "Server Authentication" in the list
+    5. Select "Security" Tab
+        1. Ensure your Group or User has the following permissions:
+            - Allow:
+                - Read
+                - Write
+                - Enroll
+    6. Optional - Suggested Security Changes
         - ***NOTE***, all of these changes will increase the security of the system
             - But, these changes may have ramifications for non-windows platforms like the Linux RDP `xrdp`.
             - *I have not tested non-windows platforms yet*
@@ -78,3 +91,11 @@ This is a guide to create a remote desktop certificate signed by a Root CA on Wi
                 - Minimum key size should match the number after the `ECDH_P` in the Algorithm
             3. Request hash
                 - `SHA512`
+    7. Select "Apply"
+    8. Select "Ok"
+
+> [!TIP]
+> You may close both of the following windows as they are no longer needed.
+>
+> - Certificate Templates Console
+> - Certification Authority
