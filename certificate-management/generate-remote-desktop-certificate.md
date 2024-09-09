@@ -19,7 +19,7 @@ This is a guide to create a remote desktop certificate signed by a Root CA on Wi
 - [Table of Contents](#table-of-contents)
 - [Diagram](#diagram)
 - [Pre-requirements](#pre-requirements)
-  - [Requires Windows Server Role](#requires-windows-server-role)
+  - [Requires Windows Server Role for Domain Controller](#requires-windows-server-role-for-domain-controller)
   - [Create Certificate Template for Remote Desktop Certificates](#create-certificate-template-for-remote-desktop-certificates)
 
 ## Diagram
@@ -31,7 +31,7 @@ This is a guide to create a remote desktop certificate signed by a Root CA on Wi
 
 ## Pre-requirements
 
-### Requires Windows Server Role
+### Requires Windows Server Role for Domain Controller
 
 - Active Directory Certificate Services
   - Certificate Authority
