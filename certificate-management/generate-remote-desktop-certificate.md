@@ -17,9 +17,17 @@ This is a guide to create a remote desktop certificate signed by a Root CA on Wi
 
 - [Repository Navigation Guide](#repository-navigation-guide)
 - [Table of Contents](#table-of-contents)
+- [Diagram](#diagram)
 - [Pre-requirements](#pre-requirements)
   - [Requires Windows Server Role](#requires-windows-server-role)
   - [Create Certificate Template for Remote Desktop Certificates](#create-certificate-template-for-remote-desktop-certificates)
+
+## Diagram
+
+> [!TIP]
+> This guide will reference `Remote Host` which denotes the system you are Remote Desktop-ing into.
+>
+> ![alt text](../images/certificate-management/generate-remote-desktop-certificate/remote-desktop-relationship.png)
 
 ## Pre-requirements
 
