@@ -45,6 +45,11 @@ This is a guide to create a remote desktop certificate signed by a Root CA on Wi
 
 ### Create Certificate Template for Remote Desktop Certificates
 
+> [!Important]
+> You must be a domain administrator or have permission to create, duplicate, and manage certificate template.
+
+0. Login to your the Domain Control with Certificate Authority
+
 1. Open Certificates Console
     1. Run `certsrv.msc`
 
