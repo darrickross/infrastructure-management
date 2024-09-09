@@ -20,6 +20,7 @@ This is a guide to create a remote desktop certificate signed by a Root CA on Wi
 - [Diagram](#diagram)
 - [Pre-requirements](#pre-requirements)
   - [Requires Windows Server Role for Domain Controller](#requires-windows-server-role-for-domain-controller)
+  - [Target System is Joined to a Windows Active Directory Domain](#target-system-is-joined-to-a-windows-active-directory-domain)
   - [Create Certificate Template for Remote Desktop Certificates](#create-certificate-template-for-remote-desktop-certificates)
 
 ## Diagram
@@ -36,6 +37,11 @@ This is a guide to create a remote desktop certificate signed by a Root CA on Wi
 - Active Directory Certificate Services
   - Certificate Authority
   - Certificate Authority Web Enrollment
+
+### Target System is Joined to a Windows Active Directory Domain
+
+> [!Important]
+> The ***Remote Server*** must be domain joined to an *Active Directory Domain* which has a managed root certificate.
 
 ### Create Certificate Template for Remote Desktop Certificates
 
