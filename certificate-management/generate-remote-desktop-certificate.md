@@ -1,4 +1,4 @@
-# Generate new Remote Desktop Certificate in Windows Active Directory Certificate Services (AD CS)
+# Configure a Certificate for Remote Desktop from a Windows Domain
 
 This is a guide to create a remote desktop certificate signed by a Root CA on Windows Active Directory Certificate Services. I use this to generate a certificate signed by my own Self Signed root certificate form a custom domain.
 
